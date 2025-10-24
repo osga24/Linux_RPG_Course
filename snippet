@@ -18,16 +18,12 @@ if [[ $1 == "install" ]]; then
         sudo sh get-docker.sh
         sudo usermod -aG docker $USER
     fi
-    if [ -f "docker-compose.yml" ]; then
-        echo "Linux RPG is already installed."
-        exit 0
-    fi
     wget https://linux.ctf.scist.org/files/45ff0318a11d18dc93b6686f44eec8a4/docker-compose.yml
 elif [[ $1 == "start" ]]; then
-    sudo docker-compose up -d
-    sudo docker exec -it challenge bash
+    sudo docker compose up -d
+    sudo docker exec -it linux_rpg_course-challenge-1 bash
 elif [[ $1 == "stop" ]]; then
-    sudo docker-compose down
+    sudo docker compose down
 elif [[ $1 == "remove" ]]; then
     sudo docker rmi linux_rpg_web linux_rpg_challenge
     sudo rm -r ../Linux_RPG_Course
