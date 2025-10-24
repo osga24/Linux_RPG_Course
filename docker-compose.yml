@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  web:
+    build:
+      context: ./Web
+      dockerfile: Dockerfile
+    image: linux_rpg_web:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./Web:/usr/src/app:ro
+    restart: unless-stopped
+    networks:
+      rpgnet:
+        aliases:
+          - web.osga
+
+  challenge:
+    build:
+      context: ./Challenge
+      dockerfile: Dockerfile
+    image: linux_rpg_challenge:latest
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./Challenge:/home/challenge:ro
+    restart: unless-stopped
+    networks:
+      - rpgnet
+
+networks:
+  rpgnet:
+    driver: bridge
