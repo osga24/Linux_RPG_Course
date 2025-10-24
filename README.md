@@ -26,5 +26,3 @@ docker-compose down
 注意事項：
 - 若要對服務進行開發或編輯檔案，請調整 `docker-compose.yml` 中對應的 volume 權限或移除 `:ro`。
 - 若需要額外暴露某些端口（例如 SSH），請修改 `docker-compose.yml` 的 `ports`。
-
-如需我幫你調整 port、加上資料庫或為每個 Challenge 建立獨立的服務，告訴我你想要的行為，我會幫你擴充。 
