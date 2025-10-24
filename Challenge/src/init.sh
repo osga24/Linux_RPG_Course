@@ -85,7 +85,7 @@ if [ -f /root/src/5_viRemoveX/check.cpp ]; then
 	cp /root/src/5_viRemoveX/check.cpp /home/player/cave/check.cpp
 fi
 if [ -f /root/src/5_viRemoveX/copy_dirtyBook.txt ]; then
-	cp /root/src/5_viRemoveX/copy_dirtyBook.txt /home/player/cave/dirtyBook
+	cp /root/src/5_viRemoveX/copy_dirtyBook.txt /home/player/cave/dirtyBook.txt
 elif [ -f /root/src/5_viRemoveX/copy_dirtyBook.cpp ]; then
 	cp /root/src/5_viRemoveX/copy_dirtyBook.cpp /home/player/cave/dirtyBook
 fi
