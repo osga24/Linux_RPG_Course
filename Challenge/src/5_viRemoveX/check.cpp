@@ -3,7 +3,7 @@
 #include <string>
 
 int main() {
-    const char target = '@';
+    const char target = '#';
     const std::string path = "dirtyBook.txt";
 
     std::ifstream in(path);
