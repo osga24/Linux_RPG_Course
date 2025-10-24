@@ -1,0 +1,40 @@
+#!/bin/bash
+
+if [[ $# == 0 ]]; then
+    echo "Usage :";
+    echo "Install Linux RPG : ./snippet install"
+    echo "Start Linux RPG : ./snippet start"
+    echo "Stop Linux RPG : ./snippet stop"
+    echo "Remove Linux RPG: ./snippet remove"
+    exit 0
+fi
+
+
+if [[ $1 == "install" ]]; then
+    if ! command -v docker &> /dev/null; then
+        sudo apt update && sudo apt upgrade -y
+        sudo apt install curl -y
+        curl -fsSL https://get.docker.com -o get-docker.sh
+        sudo sh get-docker.sh
+        sudo usermod -aG docker $USER
+    fi
+    if [ -f "docker-compose.yml" ]; then
+        echo "Linux RPG is already installed."
+        exit 0
+    fi
+    wget https://linux.ctf.scist.org/files/45ff0318a11d18dc93b6686f44eec8a4/docker-compose.yml
+elif [[ $1 == "start" ]]; then
+    sudo docker-compose up -d
+    sudo docker exec -it challenge bash
+elif [[ $1 == "stop" ]]; then
+    sudo docker-compose down
+elif [[ $1 == "remove" ]]; then
+    sudo docker rmi linux_rpg_web linux_rpg_challenge
+    sudo rm -r ../Linux_RPG_Course
+fi
+
+
+
+
+
+
