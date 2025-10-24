@@ -11,7 +11,7 @@
 set -euo pipefail
 
 # ======================== 參數與預設 ========================
-BASE_DIR="./storehouse"
+BASE_DIR="./library"
 MAX_DEPTH=6
 NUM_DIRS=100
 FILES_PER_DIR=1
