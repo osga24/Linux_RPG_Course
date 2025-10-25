@@ -18,7 +18,7 @@ if [[ $1 == "install" ]]; then
         sudo sh get-docker.sh
         sudo usermod -aG docker $USER
     fi
-    wget https://linux.ctf.scist.org/files/45ff0318a11d18dc93b6686f44eec8a4/docker-compose.yml
+    wget https://linux.ctf.scist.org/files/8654deb5e84c01a285a0d047e7ecd9f1/docker-compose.yml
 elif [[ $1 == "start" ]]; then
     sudo docker compose up -d
     sudo docker exec -it linux_rpg_course-challenge-1 bash
